@@ -1,0 +1,40 @@
+@use "src/theme/bootstrap-custom";
+@use "src/theme/icons";
+@use "src/theme/ionic-common";
+@use "src/theme/material-common";
+@use "src/theme/material-theme";
+
+.root-web-component-container {
+  @extend .container-fluid;
+
+  padding-right: 0;
+  padding-left: 0;
+}
+
+:host {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+svg {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+  .margin-right-m-2 {
+    margin-right: 2rem;
+  }
+}

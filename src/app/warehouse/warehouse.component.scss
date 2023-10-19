@@ -1,0 +1,122 @@
+@use "src/theme/common-root-web-component";
+@use "~swiper/css";
+@use "~swiper/css/pagination";
+@use "~swiper/css/navigation";
+@use "~swiper/css/keyboard";
+@use "~swiper/css/mousewheel";
+@use "~swiper/css/effect-coverflow";
+@use "node_modules/photoswipe/dist/photoswipe.css";
+@use "src/theme/variables";
+
+
+::ng-deep .mat-tab-body {
+  overflow: hidden;
+}
+
+.outer-header-wrapper {
+  max-width: 1140px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-header-text {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.web-header-text {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  letter-spacing: 2.5px;
+}
+
+.transactions-icon {
+  display: inline;
+}
+
+.ship-details {
+  max-width: 1140px;
+  display: flex;
+  justify-content: center;
+}
+
+.deposit-button-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tooltip {
+  position: absolute;
+  margin-top: 3rem;
+}
+
+.tooltip-text {
+  margin-left: 3rem;
+  margin-right: 2rem;
+  margin-top: 0.2rem;
+}
+
+.question-mark-wrapper {
+  margin-top: 7px;
+  margin-left: 1rem;
+}
+
+.question-mark {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.wallet-balance-mobile {
+  margin-top: 1.5rem;
+  background-color: #{variables.$inf-gray-medium};
+  height: 3rem;
+  border: 5px solid #{variables.$inf-gray-medium};
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.wallet-balance-web {
+  margin-top: 1.5rem;
+  background-color: transparent;
+  height: 3rem;
+
+}
+
+p {
+  font-size: 1rem;
+}
+
+@-moz-document url-prefix() {
+  .swiper {
+    margin-top: 0.6rem;
+  }
+
+  .swiper-wrapper {
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .swiper-wrapper {
+    margin-top: 3.25rem;
+    padding-top: 1.875rem;
+  }
+}
+
+@media (min-width: 1140px) {
+  .ship-details {
+    margin: auto;
+  }
+
+  .warehouse-header-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .app-warehouse-header {
+    width: 100%;
+  }
+}

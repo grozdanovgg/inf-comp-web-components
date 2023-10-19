@@ -1,0 +1,46 @@
+<div class="tab-stats">
+  <h1 class="title">{{ 'shipStats.stats.title' | translate | uppercase }}</h1>
+  <table class="ship-stats"
+         *ngIf="computedStats">
+    <caption>{{ 'shipStats.stats.title' | translate }}</caption>
+    <thead>
+      <th scope="col">Icon</th>
+      <th scope="col">Stat</th>
+      <th scope="col">Gauge</th>
+      <th scope="col">Value</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ability of abilities">
+        <td>
+          <svg viewBox="0 0 32 32">
+            <path *ngFor="let d of icons[ability]"
+                  [attr.d]="d"
+                  fill="#FFF"
+                  style="fill: var(--color-1, #FFF)"></path>
+          </svg>
+        </td>
+        <td>
+          {{ ('shipStats.stats.'+ability) | translate }}
+        </td>
+        <td>
+          <ion-progress-bar [value]="computedStats[ability].Value / 10"></ion-progress-bar>
+        </td>
+        <td>
+          {{ computedStats[ability].Value }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="tab-abilities">
+  <p class="title">{{ 'shipStats.abilities.title' | translate | uppercase }}</p>
+  <div class="ship-abilities">
+    <div class="ship-abilities__card"
+         *ngFor="let ability of ship.Abilities">
+      <img [src]="ability.Image"
+           [alt]="ability.Value" />
+      <p class="ship-abilities__card__name">{{ ability.Name }}</p>
+      <p class="ship-abilities__card__value">{{ ability.Value }}</p>
+    </div>
+  </div>
+</div>

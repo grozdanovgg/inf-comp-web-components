@@ -1,0 +1,44 @@
+.ship-details-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.section {
+  width: 100%;
+  padding-top: 3rem;
+}
+
+.ship-category {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ship-class {
+  line-height: 2.2;
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  font-weight: 500;
+}
+
+.nft-action-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 6.75rem;
+}
+
+.nft-action-buttons-group {
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .nft-action-buttons-group {
+    padding-left: 6rem;
+  }
+}

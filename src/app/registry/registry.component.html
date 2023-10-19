@@ -1,0 +1,22 @@
+<div class="card-container">
+  <app-ship-card class="child-no-blur"
+                 [ship]="ship"
+                 [isOnFocus]="true">
+  </app-ship-card>
+</div>
+<div *ngIf="ship"
+     class="ship-details">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab [label]="'shipDetails.generalTab' | translate | uppercase">
+      <app-ship-details-general-registry [ship]="ship"></app-ship-details-general-registry>
+    </mat-tab>
+    <mat-tab [label]="'shipDetails.statsTab' | translate | uppercase">
+      <div class="m-auto pt-5">
+        <app-ship-details-statistics [observe]="ship"></app-ship-details-statistics>
+      </div>
+    </mat-tab>
+    <mat-tab [label]="'shipDetails.detailsTab' | translate | uppercase">
+      <app-ship-details-tech [ship]="ship"></app-ship-details-tech>
+    </mat-tab>
+  </mat-tab-group>
+</div>

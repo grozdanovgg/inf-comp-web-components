@@ -1,0 +1,18 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <h1 class="popup-title">{{ title | translate | uppercase }}</h1>
+    </div>
+  </div>
+  <div class="row"
+       *ngFor="let section of sections">
+    <div class="col">
+      <h3>
+        {{ section.subTitle | translate | uppercase }}
+      </h3>
+      <p *ngFor="let text of section.text">
+        {{ text | translate }}
+      </p>
+    </div>
+  </div>
+</div>

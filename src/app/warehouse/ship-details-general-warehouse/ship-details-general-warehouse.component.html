@@ -1,0 +1,222 @@
+<div class="ship-details-container flex-md-row">
+  <div class="section">
+    <p class="ship-category">{{ ship.CategoryName | uppercase }}</p>
+    <p class="ship-class">
+      {{ "shipClass" | translate: {className: ship.Class} | uppercase }}
+    </p>
+    <div *ngIf="smallResolution">
+      <div *ngIf="toggleTooltip"
+           class="tooltip">{{ "shipDetails.general.tooltip" | translate }}
+      </div>
+      <div (mouseenter)="showTooltip($event)"
+           (mouseleave)="hideTooltip($event)">
+        <ion-item class="details-button"
+                  button
+                  detail="false"
+                  lines="none"
+                  *ngIf="ship.NFTAssetID"
+                  (click)="transferToGame()"
+                  [disabled]="disableNFTDepositBtn">
+          <div slot="start"
+               class="icon-left">
+            <svg width="24"
+                 height="24"
+                 viewBox="0 0 32 24"
+                 fill="none">
+              <path *ngFor="let d of icons['inWalletAsset']"
+                    [attr.d]="d"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    fill="white"/>
+            </svg>
+            <span translate="shipDetails.inWallet"
+                  class="icon-subtitle"></span>
+          </div>
+          <ion-label class="button-content"
+                     translate="shipDetails.transferToGame"></ion-label>
+          <div slot="end"
+               class="icon-right">
+            <svg width="7"
+                 height="12"
+                 viewBox="0 0 7 12"
+                 fill="none">
+              <path *ngFor="let d of icons['arrowRight']"
+                    [attr.d]="d"
+                    fill="white"/>
+            </svg>
+          </div>
+        </ion-item>
+        <ion-item class="details-button"
+                  button
+                  detail="false"
+                  lines="none"
+                  *ngIf="!ship.NFTAssetID"
+                  (click)="transferToWallet()"
+                  [disabled]="disableNFTDepositBtn">
+          <div slot="start"
+               class="icon-left">
+            <svg width="24"
+                 height="24"
+                 viewBox="0 0 32 24"
+                 fill="none">
+              <path *ngFor="let d of icons['inGameAsset']"
+                    [attr.d]="d"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    fill="white"/>
+            </svg>
+            <span translate="shipDetails.inGame"
+                  class="icon-subtitle"></span>
+          </div>
+          <ion-label class="button-content"
+                     translate="shipDetails.transferToWallet"></ion-label>
+          <div slot="end"
+               class="icon-right">
+            <svg width="7"
+                 height="12"
+                 viewBox="0 0 7 12"
+                 fill="none">
+              <path *ngFor="let d of icons['arrowRight']"
+                    [attr.d]="d"
+                    fill="white"/>
+            </svg>
+          </div>
+        </ion-item>
+      </div>
+    </div>
+    <p [textContent]="ship.Description"></p>
+  </div>
+  <div class="section nft-action-section">
+    <div class="nft-action-buttons-group">
+      <div *ngIf="!smallResolution">
+        <div *ngIf="toggleTooltip"
+             class="tooltip">{{ "shipDetails.general.tooltip" | translate }}
+        </div>
+        <div (mouseenter)="showTooltip($event)"
+             (mouseleave)="hideTooltip($event)">
+          <ion-item class="details-button"
+                    button
+                    detail="false"
+                    lines="none"
+                    *ngIf="ship.NFTAssetID"
+                    (click)="transferToGame()"
+                    [disabled]="disableNFTDepositBtn">
+            <div slot="start"
+                 class="icon-left">
+              <svg width="24"
+                   height="24"
+                   viewBox="0 0 32 24"
+                   fill="none">
+                <path *ngFor="let d of icons['inWalletAsset']"
+                      [attr.d]="d"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="white"/>
+              </svg>
+              <span translate="shipDetails.inWallet"
+                    class="icon-subtitle"></span>
+            </div>
+            <ion-label class="button-content"
+                       translate="shipDetails.transferToGame"></ion-label>
+            <div slot="end"
+                 class="icon-right">
+              <svg width="7"
+                   height="12"
+                   viewBox="0 0 7 12"
+                   fill="none">
+                <path *ngFor="let d of icons['arrowRight']"
+                      [attr.d]="d"
+                      fill="white"/>
+              </svg>
+            </div>
+          </ion-item>
+          <ion-item class="details-button"
+                    button
+                    detail="false"
+                    lines="none"
+                    *ngIf="!ship.NFTAssetID"
+                    (click)="transferToWallet()"
+                    [disabled]="disableNFTDepositBtn">
+            <div slot="start"
+                 class="icon-left">
+              <svg width="24"
+                   height="24"
+                   viewBox="0 0 32 24"
+                   fill="none">
+                <path *ngFor="let d of icons['inGameAsset']"
+                      [attr.d]="d"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      fill="white"/>
+              </svg>
+              <span translate="shipDetails.inGame"
+                    class="icon-subtitle"></span>
+            </div>
+            <ion-label class="button-content"
+                       translate="shipDetails.transferToWallet"></ion-label>
+            <div slot="end"
+                 class="icon-right">
+              <svg width="7"
+                   height="12"
+                   viewBox="0 0 7 12"
+                   fill="none">
+                <path *ngFor="let d of icons['arrowRight']"
+                      [attr.d]="d"
+                      fill="white"/>
+              </svg>
+            </div>
+          </ion-item>
+        </div>
+      </div>
+      <ion-button *ngIf="ship.NFTAssetID"
+                  class="pl-0"
+                  expand="block"
+                  fill="outline"
+                  size="default"
+                  strong="true"
+                  [href]="NFTExplorerEndpoint + ship.NFTAssetID!"
+                  target="_blank">
+        {{ "shipDetails.viewInExplorer" | translate | uppercase }}
+      </ion-button>
+    </div>
+    <div *ngIf="browserEnv && ship.NFTAssetID"
+         class="question-mark-wrapper">
+      <svg class="question-mark"
+           xmlns="http://www.w3.org/2000/svg"
+           width="29"
+           height="29"
+           viewBox="0 0 29 29"
+           (click)="openNFTInformationModal()">
+        <g id="Groupe_114"
+           data-name="Groupe 114"
+           transform="translate(-1503 -141)">
+          <g id="Ellipse_35"
+             data-name="Ellipse 35"
+             transform="translate(1503 141)"
+             fill="none"
+             stroke="#D8D8D8"
+             stroke-width="1.5">
+            <circle cx="14.5"
+                    cy="14.5"
+                    r="14.5"
+                    stroke="none"/>
+            <circle cx="14.5"
+                    cy="14.5"
+                    r="13.8"
+                    fill="none"/>
+          </g>
+          <text id="_"
+                data-name="?"
+                transform="translate(1512 163)"
+                fill="#D8D8D8"
+                font-size="20.5"
+                font-family="Montserrat-Regular, Montserrat">
+            <tspan x="0"
+                   y="0">?
+            </tspan>
+          </text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="component-switch">
+  <button class="component-toggle-button"
+          (click)="toggleActiveComponent('inf-wcomp-warehouse')">Warehouse</button>
+  <button class="component-toggle-button"
+          (click)="toggleActiveComponent('inf-wcomp-ship-withdraw')">Ship Withdraw</button>
+  <button class="component-toggle-button"
+          (click)="toggleActiveComponent('inf-wcomp-ship-deposit')">Ship Deposit</button>
+  <button class="component-toggle-button"
+          (click)="toggleActiveComponent('inf-wcomp-registry')">Registry</button>
+</div>
+<div class="warehouse-container"
+     #webComponentContainer></div>

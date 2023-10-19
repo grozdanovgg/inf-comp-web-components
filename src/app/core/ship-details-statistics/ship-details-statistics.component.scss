@@ -1,0 +1,112 @@
+@use "src/theme/common-root-web-component";
+
+.tab-stats,
+.tab-abilities {
+  display: block;
+
+  @media (min-width: 768px) {
+    width: 47%;
+    float: left;
+
+    &.tab-abilities {
+      float: right;
+    }
+  }
+}
+
+.title {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+.ship-stats {
+  width: 95%;
+  padding: 10px;
+  padding-left: 0;
+  display: inline-grid;
+
+  caption,
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: grid;
+    column-gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: 20px 1fr 2fr auto;
+  }
+
+  tbody tr td {
+    display: inline-block;
+    padding: 7px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 80%;
+    position: relative;
+
+    &:first-child {
+      padding-left: 0;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        vertical-align: bottom;
+      }
+    }
+
+    &:nth-child(2) {
+      padding-left: 0;
+    }
+
+    &:nth-child(3) {
+      min-width: 40%;
+
+      ion-progress-bar {
+        position: relative;
+        top: 7px;
+        height: 3px;
+        width: 100%;
+        --background: #FFF4;
+        --progress-background: #FFF;
+      }
+    }
+  }
+}
+
+.ship-abilities {
+  padding: 20px;
+  padding-left: 0;
+
+  &__card {
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: repeat(2, auto);
+    column-gap: 40px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      grid-row: 1 / span 2;
+    }
+
+    &__name {
+      margin: 0;
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 110%;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    &__value {
+      margin: 0;
+      grid-column: 2;
+      grid-row: 2;
+      font-style: 90%;
+    }
+  }
+}

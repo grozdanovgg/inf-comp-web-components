@@ -1,0 +1,32 @@
+<div class="confirm-modal">
+  <div class="row">
+    <div class="col">
+      <h2 [innerText]="title | translate | uppercase"></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p [innerText]="content | translate | uppercase"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ion-button (click)="closeModal()"
+                  fill="solid"
+                  expand="block"
+                  size="default"
+                  strong="true">
+        {{ cancelButtonText | translate | uppercase }}
+      </ion-button>
+    </div>
+    <div class="col">
+      <ion-button [mat-dialog-close]="true"
+                  fill="solid"
+                  expand="block"
+                  size="default"
+                  strong="true">
+        {{ okButtonText | translate | uppercase }}
+      </ion-button>
+    </div>
+  </div>
+</div>

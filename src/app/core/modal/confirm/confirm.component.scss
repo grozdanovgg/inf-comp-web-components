@@ -1,0 +1,17 @@
+.close {
+  float: right;
+  top: -1.5rem;
+  right: -1.5rem;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 769px) {
+  .close {
+    top: -1rem;
+  }
+}
+
+svg {
+  pointer-events: all;
+  cursor: pointer;
+}

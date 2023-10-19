@@ -1,0 +1,64 @@
+<ion-card class="ship-card blur-effect-card"
+          *ngIf="ship">
+  <ng-container *ngIf="isOnFocus">
+    <div class="header-actions">
+      <svg class="open-fullscreen-icon"
+           (click)="openFullscreen($event)"
+           xmlns="http://www.w3.org/2000/svg"
+           width="24"
+           height="54"
+           viewBox="0 0 24 54">
+        <path fill="#fff"
+              d="M24 9h-2v-7h-7v-2h9v9zm-9 15v-2h7v-7h2v9h-9zm-15-9h2v7h7v2h-9v-9zm9-15v2h-7v7h-2v-9h9z" />
+      </svg>
+      <div *ngIf="inSelectedIconView; else viewSelector"
+           class="d-inline">
+        <svg class="view-selector-icon"
+             width="30"
+             height="58"
+             viewBox="0 0 30 58"
+             (mouseenter)="onViewIconHover($event)">
+          <path class="white-svg"
+                [attr.d]="currentIconPath[0]"></path>
+          <path class="white-svg"
+                [attr.d]="currentIconPath[1]"></path>
+        </svg>
+      </div>
+      <ng-template #viewSelector>
+        <div class="d-inline"
+             (mouseleave)="onViewIconHoverLeave($event)"
+             (clickOutside)="onViewIconHoverLeave($event)">
+          <svg class="view-selector-icon"
+               width="30"
+               height="58"
+               viewBox="0 0 30 58"
+               [ngClass]="setAnimationClasses(i)"
+               (click)="updateSelector($event, iconPathKey)"
+               *ngFor="let iconPathKey of iconPathKeys; let i = index">
+            <path *ngIf="iconPaths[iconPathKey]?.[0]"
+                  [attr.d]="iconPaths[iconPathKey][0]"
+                  [ngClass]="iconPathKey === selectedImage ? 'white-svg' : 'grey-svg'"></path>
+            <path *ngIf="iconPaths[iconPathKey]?.[1]"
+                  [attr.d]="iconPaths[iconPathKey][1]"
+                  [ngClass]="iconPathKey === selectedImage ? 'white-svg' : 'grey-svg'"></path>
+          </svg>
+        </div>
+      </ng-template>
+    </div>
+  </ng-container>
+  <div class="image-container">
+    <app-inf-async-loading-img [imgSrc]="ship.Images[selectedImage]"
+                               [paddingBottom]="60"
+                               [pendingWithdrawal]="ship.PendingWithdrawal"
+                               [ariaLabel]="selectedImage + ' image of the ship'"
+                               [role]="'img'"></app-inf-async-loading-img>
+  </div>
+  <div class="force-icon-usf-small"></div>
+  <ion-card-header>
+    <ion-card-title>
+      <p class="category-name">{{ ship.CategoryName | uppercase }}</p>
+      <p *ngIf="ship.InstanceID"
+         class="serial-number">{{ ship.SerialNumber | uppercase }}</p>
+    </ion-card-title>
+  </ion-card-header>
+</ion-card>

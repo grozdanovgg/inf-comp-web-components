@@ -1,0 +1,108 @@
+@use "src/theme/material-common.scss";
+@use "src/theme/material-theme.scss";
+@use "src/theme/common-root-web-component";
+@use "node_modules/photoswipe/dist/photoswipe.css";
+
+
+.tooltip {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  margin-right: 5px;
+}
+
+.tooltip-content {
+  border: 1px solid white;
+  margin: 5px 10px 10px 10px;
+  width: 12rem;
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  background-color: white;
+  padding: 8px;
+  z-index: 100;
+
+  &:after {
+    content: "";
+    position: absolute;
+    margin-top: 2rem;
+    margin-left: 4.5rem;
+    transform: translateY(-50%);
+    border: 10px solid #000;
+    border-color: white transparent transparent transparent;
+  }
+}
+
+canvas {
+  width: 18rem;
+  height: 18rem;
+  display: inline;
+}
+
+.qr-code {
+  width: 90%;
+  text-align: center;
+}
+
+// to trigger the click on clicking the clipboard icon/
+svg {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.qr-code-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.deposit-content {
+  padding: 0;
+}
+
+.explanation-style {
+  font-size: 1rem;
+  line-height: 20px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.spinner-wrapper {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+}
+
+.text-style {
+  padding-left: 1rem;
+  padding-top: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h1 {
+  margin-bottom: 2rem
+}
+
+.clipboard-svg {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+.close {
+  float: right;
+  top: -1.5rem;
+  right: -1.5rem;
+  background-color: transparent;
+  margin-right: -10px;
+}
+
+@media screen and (max-width: 576px) {
+  .qr-code-container {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,91 @@
+<div class="root-web-component-container">
+  <div class="row mx-0 mb-0 mt-2">
+    <div class="col-8 ps-0">
+      <h1 class="fw-bold">
+        {{ "warehouse.shipDetails.deposit.title" | translate | uppercase }}
+      </h1>
+    </div>
+    <div class="col-4 px-0 mt-2">
+      <button *ngIf="!browserEnv" type="button"
+              class="close"
+              (click)="close()">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="18"
+             height="20"
+             viewBox="0 0 28 30"
+             alt="close popup">
+          <path [attr.d]="icons['close']"
+                stroke="white"
+                stroke-width="1"
+                fill="white"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="row m-0">
+    <div class="col-sm qr-code-container">
+      <div class="row mb-2">
+        <div class="col ms-0 ps-0">
+          <div class="qr-code"
+               #qrCode></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm deposit-content">
+      <div class="row">
+        <div class="col">
+          <p class="explanation-style mt-0">
+            {{ "warehouse.shipDetails.deposit.explanation" | translate }}
+          </p>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col position-relative">
+          <div class="tooltip"
+               *ngIf="toggleTooltip">
+            <div class="d-flex justify-content-end">
+              <div class="tooltip-content"
+                   translate="warehouse.shipWithdraw.copyAddressSuccessMessage"></div>
+            </div>
+          </div>
+          <div class="row input-group">
+            <div class="col">
+              <ion-input class="wallet-address-input"
+                         type="text"
+                         [value]="walletAddress"
+                         readonly="readonly">
+                <svg class="clipboard-svg"
+                     xmlns="http://www.w3.org/2000/svg"
+                     width="28"
+                     height="30"
+                     viewBox="0 0 30 30"
+                     (click)="copyToClipboard()"
+                     (mouseleave)="hideTooltip($event)">
+                  <path [attr.d]="icons['clipboardFront']"
+                        stroke="white"
+                        stroke-width="2"></path>
+                  <path [attr.d]="icons['clipboardBack']"
+                        stroke="white"
+                        stroke-width=".5"
+                        fill="white"></path>
+                </svg>
+              </ion-input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <div class="spinner-wrapper">
+            <mat-progress-spinner color="primary"
+                                  [diameter]="30"
+                                  mode="indeterminate">
+            </mat-progress-spinner>
+            <span
+                  class="text-style margin-right-sm-2">{{ "warehouse.shipDetails.deposit.waitOnDeposit" | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

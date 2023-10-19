@@ -1,0 +1,63 @@
+<div #swiperElement>
+  <swiper [config]="config"
+          [slidesPerView]="slidesPerView"
+          [spaceBetween]="spaceBetween"
+          (init)="onSwiperInit($event)"
+          (slideChange)="onSlideChange($event)"
+          (waResizeObserver)="setBreakpointsSlides($event)">
+    <ng-template swiperSlide
+                 *ngFor="let ship of ships">
+      <div class="container margin-neg-top">
+        <div class="icon-group"
+             *ngIf="ship.PendingWithdrawal">
+          <svg class="arrow-svg"
+               xmlns="http://www.w3.org/2000/svg"
+               width="72.339"
+               height="72.339"
+               viewBox="0 0 72.339 72.339">
+            <rect id="Rectangle_1505"
+                  data-name="Rectangle 1505"
+                  width="66.339"
+                  height="66.339"
+                  rx="5"
+                  transform="translate(3 3)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="6" />
+            <g id="Icon_feather-arrow-up-right"
+               data-name="Icon feather-arrow-up-right"
+               transform="translate(20.739 18.178)">
+              <path id="Path_162"
+                    data-name="Path 162"
+                    d="M10.5,42.586,42.586,10.5"
+                    transform="translate(-10.5 -8.824)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                    stroke-width="6" />
+              <path id="Path_163"
+                    data-name="Path 163"
+                    d="M10.5,10.5H42.586V42.586"
+                    transform="translate(-8.824 -10.5)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                    stroke-width="6" />
+            </g>
+          </svg>
+          <h1 class="withdrawal-text">
+            {{ "warehouse.shipDetails.withdraw.pendingWithdrawal" | translate | uppercase }}
+          </h1>
+        </div>
+        <app-ship-card [ship]="ship"
+                       [isOnFocus]="!!(focusedShipObject?.ShipID === ship.ShipID)"
+                       [class]="{
+                        'child-blur': ship.PendingWithdrawal,
+                        'child-no-blur': !ship.PendingWithdrawal}">
+        </app-ship-card>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

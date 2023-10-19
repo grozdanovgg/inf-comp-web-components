@@ -1,0 +1,83 @@
+@use "src/theme/variables.scss";
+
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:host {
+  /* Application Colors */
+  --ion-text-color: white;
+  --ion-text-color-rgb: 255, 255, 255;
+  --ion-background-color: #{variables.$inf-gray-dark};
+  --ion-background-color-rgb: #{variables.$inf-gray-dark-rgb};
+  --ion-border-color: white;
+  --ion-item-border-color: white;
+  --ion-item-color: white;
+
+  /* Colors categories */
+  --ion-color-primary: white;
+  --ion-color-primary-rgb: 255, 255, 255;
+  --ion-color-primary-contrast: #{variables.$inf-gray-dark};
+  --ion-color-primary-contrast-rgb: #{variables.$inf-gray-dark-rgb};
+  --ion-color-primary-shade: mix(#000, white, 12%);
+  --ion-color-primary-tint: mix(#fff, white, 10%);
+
+  --ion-color-secondary: #{variables.$inf-gray-light};
+  --ion-color-secondary-rgb: #{variables.$inf-gray-light-rgb};
+  --ion-color-secondary-contrast: white;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: mix(#000, #{variables.$inf-gray-light}, 12%);
+  --ion-color-secondary-tint: mix(#fff, #{variables.$inf-gray-light}, 10%);
+
+  --ion-color-danger: #{variables.$inf-red};
+  --ion-color-danger-rgb: #{variables.$inf-red-rgb};
+  --ion-color-danger-contrast: white;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: mix(#000, #{variables.$inf-red}, 12%);
+  --ion-color-danger-tint: mix(#fff, #{variables.$inf-red}, 10%);
+
+}
+
+ion-button {
+  height: 3rem;
+
+  &.button-disabled {
+    cursor: not-allowed;
+  }
+}
+
+ion-input {
+  border-radius: 5px;
+  outline: 1px solid #{variables.$inf-gray-light};
+  outline-offset: -1px;
+  background-color: #1F2227 !important;
+  height: 3rem;
+  --placeholder-color: white;
+  --placeholder-opacity: 1;
+}
+
+ion-card {
+  border: 2px solid #{variables.$inf-gray-light};
+  border-radius: 10px;
+  --background: #{variables.$inf-gray-dark};
+}
+
+ion-card-title {
+  --color: white;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+ion-card-subtitle {
+  --color: white;
+  text-align: left;
+  font-size: 0.75rem;
+}

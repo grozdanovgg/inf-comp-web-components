@@ -1,0 +1,101 @@
+<div class="root-web-component-container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="fw-bold mb-4">{{'warehouse.shipWithdraw.title' | translate | uppercase}}</h1>
+    </div>
+    <div *ngIf="!browserEnv"
+         class="col-4 px-0 mt-2">
+      <button type="button"
+              class="close"
+              (click)="close()">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="18"
+             height="20"
+             viewBox="0 0 28 30"
+             alt="close popup">
+          <path [attr.d]="icons['close']"
+                stroke="white"
+                stroke-width="1"
+                fill="white"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="row"
+       *ngIf="ship">
+    <div class="col-sm">
+      <div class="position-relative">
+        <div *ngIf="ship.PendingWithdrawal"
+             class="icon-group">
+          <svg class="arrow-svg"
+               xmlns="http://www.w3.org/2000/svg"
+               width="72.339"
+               height="72.339"
+               viewBox="0 0 72.339 72.339">
+            <rect id="Rectangle_1505"
+                  data-name="Rectangle 1505"
+                  width="66.339"
+                  height="66.339"
+                  rx="5"
+                  transform="translate(3 3)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="6" />
+            <g id="Icon_feather-arrow-up-right"
+               data-name="Icon feather-arrow-up-right"
+               transform="translate(20.739 18.178)">
+              <path id="Path_162"
+                    data-name="Path 162"
+                    d="M10.5,42.586,42.586,10.5"
+                    transform="translate(-10.5 -8.824)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                    stroke-width="6" />
+              <path id="Path_163"
+                    data-name="Path 163"
+                    d="M10.5,10.5H42.586V42.586"
+                    transform="translate(-8.824 -10.5)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                    stroke-width="6" />
+            </g>
+          </svg>
+          <h1 class="withdrawal-text">
+            {{ "warehouse.shipDetails.withdraw.pendingWithdrawal" | translate | uppercase }}
+          </h1>
+        </div>
+        <app-ship-card [ngClass]="ship.PendingWithdrawal ? 'child-blur' : 'child-no-blur'"
+                       [ship]="ship"
+                       [isOnFocus]="true">
+        </app-ship-card>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="row mb-2">
+        <div class="col">
+          <p class="mt-2"
+             [innerHTML]="'warehouse.shipWithdraw.explanation' | translate:{
+             shipCategoryName: ship.CategoryName,
+             shipNFTAssetID: ship.NFTAssetID,
+             ShipID: ship.ShipID,
+             NFTExplorerEndpoint: NFTExplorerEndpoint}"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <ion-button expand="block"
+                      fill="solid"
+                      size="default"
+                      strong="true"
+                      (click)="requestWithdraw()">
+            {{'warehouse.shipWithdraw.requestWithdraw' | translate }}
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

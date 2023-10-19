@@ -1,0 +1,23 @@
+<div class="ship-details-container flex-md-row">
+  <div class="section">
+    <p class="ship-category">{{ ship.CategoryName | uppercase }}</p>
+    <p class="ship-class">
+      {{ "shipClass" | translate: { className: ship.Class } | uppercase }}
+    </p>
+    <p [textContent]="ship.Description"></p>
+  </div>
+  <div *ngIf="ship.NFTAssetID"
+       class="section nft-action-section">
+    <div class="nft-action-buttons-group">
+      <ion-button class="pl-0"
+                  expand="block"
+                  fill="outline"
+                  size="default"
+                  strong="true"
+                  [href]="NFTExplorerEndpoint + ship.NFTAssetID!"
+                  target="_blank">
+        {{ "shipDetails.viewInExplorer" | translate | uppercase }}
+      </ion-button>
+    </div>
+  </div>
+</div>

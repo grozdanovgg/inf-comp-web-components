@@ -1,0 +1,151 @@
+<div class="outer-header-wrapper">
+  <div class="warehouse-header-wrapper">
+    <div class="app-warehouse-header">
+      <div class="container"
+           *ngIf="!browserEnv; else webHeader">
+        <div class="row">
+          <div class="col-md-12 px-0">
+            <h5 class="mobile-header-text float-start">
+              {{ "warehouse.title" | translate | uppercase }}
+            </h5>
+            <svg class="transactions-icon float-end"
+                 width="31"
+                 height="32"
+                 viewBox="0 0 31 32"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <a href="tabs/warehouse/ship-deposit">
+                <path d="M20.1773 14.9602C20.0162 14.7917 19.797 14.696 19.5677 14.6944C19.3383 14.6927 19.1178 14.7851 18.9545 14.9513C18.7912 15.1175 18.6985 15.3439 18.6969 15.5806C18.6953 15.8173 18.7849 16.045 18.9459 16.2136L22.1492 19.5558H6.74392C6.51554 19.5558 6.29652 19.6494 6.13503 19.8161C5.97354 19.9828 5.88281 20.2089 5.88281 20.4447C5.88281 20.6804 5.97354 20.9065 6.13503 21.0732C6.29652 21.2399 6.51554 21.3336 6.74392 21.3336H22.1492L18.9459 24.6224C18.8661 24.7053 18.803 24.8036 18.7601 24.9117C18.7172 25.0197 18.6953 25.1355 18.6957 25.2522C18.6961 25.369 18.7187 25.4846 18.7624 25.5924C18.8061 25.7001 18.8699 25.7979 18.9502 25.8802C19.0305 25.9625 19.1257 26.0277 19.2304 26.072C19.335 26.1163 19.4472 26.1389 19.5603 26.1385C19.6734 26.1381 19.7854 26.1147 19.8898 26.0696C19.9942 26.0245 20.0889 25.9587 20.1686 25.8758L25.43 20.4447L20.1773 14.9602Z"
+                      fill="white" />
+                <path d="M11.4001 16.4001C11.5712 16.4011 11.7386 16.3496 11.8812 16.252C12.0237 16.1544 12.1348 16.0152 12.2004 15.8521C12.266 15.689 12.2831 15.5095 12.2494 15.3364C12.2158 15.1633 12.133 15.0045 12.0115 14.8801L8.81679 11.5557H24.2135C24.4418 11.5557 24.6609 11.462 24.8224 11.2953C24.9838 11.1286 25.0746 10.9025 25.0746 10.6668C25.0746 10.431 24.9838 10.2049 24.8224 10.0382C24.6609 9.87155 24.4418 9.7779 24.2135 9.7779H8.81679L12.0115 6.46234C12.0912 6.37947 12.1544 6.28119 12.1973 6.17313C12.2402 6.06506 12.2621 5.94933 12.2617 5.83253C12.2613 5.71574 12.2386 5.60017 12.195 5.49242C12.1513 5.38467 12.0875 5.28686 12.0072 5.20457C11.9269 5.12227 11.8317 5.05711 11.727 5.01279C11.6223 4.96848 11.5102 4.94588 11.3971 4.94629C11.1686 4.94713 10.9497 5.04163 10.7887 5.20901L5.52734 10.6668L10.7887 16.1246C10.8678 16.2102 10.9625 16.2786 11.0675 16.3259C11.1725 16.3733 11.2856 16.3985 11.4001 16.4001Z"
+                      fill="white" />
+              </a>
+            </svg>
+          </div>
+        </div>
+        <div *ngIf="hasWallet"
+             class="row">
+          <div class="col-md-12 wallet-balance-mobile">
+            <p class="float-start">
+              {{"warehouse.balance" | translate }}
+            </p>
+            <p class="fw-bold float-end">
+              36.2715 INF
+            </p>
+          </div>
+        </div>
+      </div>
+      <ng-template #webHeader>
+        <div class="d-flex flex-sm-row flex-column justify-content-between pt-4">
+          <div>
+            <h1 class="web-header-text">
+              {{ "warehouse.title" | translate | uppercase }}
+            </h1>
+            <div *ngIf="hasWallet">
+              <p class="float-start"
+                 [innerHTML]="'warehouse.balance-web' | translate : {infBalance: 36.2715}">
+              </p>
+            </div>
+          </div>
+          <div class="deposit-button-wrapper"
+               (mouseenter)="showTooltip($event)"
+               (mouseleave)="hideTooltip($event)">
+            <ion-button class="deposit-button"
+                        (click)="transferShipToGame()"
+                        [disabled]="disableNFTDepositBtn"
+                        color="primary"
+                        fill="solid"
+                        size="default"
+                        strong="true">
+              {{ "warehouse.shipDetails.deposit" | translate | uppercase }}
+            </ion-button>
+            <div *ngIf="browserEnv"
+                 class="question-mark-wrapper">
+              <svg class="question-mark"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="29"
+                   height="29"
+                   viewBox="0 0 29 29"
+                   (click)="openNFTInformationModal()">
+                <g id="Groupe_114"
+                   data-name="Groupe 114"
+                   transform="translate(-1503 -141)">
+                  <g id="Ellipse_35"
+                     data-name="Ellipse 35"
+                     transform="translate(1503 141)"
+                     fill="none"
+                     stroke="#D8D8D8"
+                     stroke-width="1.5">
+                    <circle cx="14.5"
+                            cy="14.5"
+                            r="14.5"
+                            stroke="none" />
+                    <circle cx="14.5"
+                            cy="14.5"
+                            r="13.8"
+                            fill="none" />
+                  </g>
+                  <text id="_"
+                        data-name="?"
+                        transform="translate(1512 163)"
+                        fill="#D8D8D8"
+                        font-size="20.5"
+                        font-family="Montserrat-Regular, Montserrat">
+                    <tspan x="0"
+                           y="0">?</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div *ngIf="toggleTooltip"
+                 class="tooltip">
+              {{ "warehouse.shipDetails.deposit.tooltip" | translate }}
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div *ngIf="ships.length; else emptyInventoryTemplate"
+     class="app-swiper-wrapper">
+  <app-ships-slider [ships]="ships"
+                    (focusChange)="onShipChangeInSlider($event)"></app-ships-slider>
+  <div class="ship-details">
+    <!-- NOTE The style is a workaround for a known bug - to avoid scrolling to top when switching between tabs -->
+    <mat-tab-group style='min-height: 300px; width: 100%'
+                   [selectedIndex]="selectedTabIndex"
+                   mat-align-tabs="center"
+                   (swipeleft)="swipeLeft()"
+                   (swiperight)="swipeRight()">
+      <mat-tab [label]="'shipDetails.generalTab' | translate | uppercase">
+        <app-ship-details-general-warehouse *ngIf="!!focusedShip"
+                                            [ship]="focusedShip"
+                                            [disableWithdrawNFTBtn]="disableWithdrawNFTBtn"
+                                            [disableNFTDepositBtn]="disableNFTDepositBtn">
+        </app-ship-details-general-warehouse>
+      </mat-tab>
+      <mat-tab [label]="'shipDetails.statsTab' | translate | uppercase">
+        <div class="m-auto pt-5">
+          <app-ship-details-statistics *ngIf="!!focusedShip"
+                                       [observe]="focusedShip"></app-ship-details-statistics>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'shipDetails.detailsTab' | translate | uppercase">
+        <app-ship-details-tech *ngIf="!!focusedShip"
+                               [ship]="focusedShip"></app-ship-details-tech>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<ng-template #emptyInventoryTemplate>
+  <div class="text-center">
+    <p>
+      <span translate="warehouse.noShipsMessage"></span>
+      <span>&nbsp;</span>
+      <a class="href"
+         (click)="navigateToContextRoute('/store')"
+         translate="warehouse.storeLink"></a>
+    </p>
+  </div>
+</ng-template>

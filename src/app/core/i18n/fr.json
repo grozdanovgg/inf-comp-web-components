@@ -1,0 +1,6 @@
+{
+  "warehouse": {
+    "ships": "vaisseaux",
+    "shipClass": "{{className}} classe"
+  }
+}

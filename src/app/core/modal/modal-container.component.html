@@ -1,0 +1,27 @@
+<ng-container>
+  <section [ngClass]="backdropClass"
+           (click)="close()">
+    <div class="modal-container-body"
+         [ngClass]="size"
+         (click)="$event.stopPropagation()">
+      <button *ngIf="showCloseIcon"
+              type="button"
+              class="close"
+              (click)="close()">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="28"
+             height="30"
+             viewBox="0 0 28 30"
+             alt="close popup">
+          <path [attr.d]="icons['close']"
+                stroke="white"
+                stroke-width="1"
+                fill="white"></path>
+        </svg>
+      </button>
+      <div class="modal-container-content">
+        <ng-template appModalAnchor></ng-template>
+      </div>
+    </div>
+  </section>
+</ng-container>

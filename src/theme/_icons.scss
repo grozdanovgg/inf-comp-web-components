@@ -1,0 +1,20 @@
+@mixin force-icon-usf($size) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $size;
+    height: $size;
+    background: url("https://cdn.infinitefleet.com/usf_item.png");
+    background-size: cover;
+  }
+}
+
+.force-icon-usf-small {
+  @include force-icon-usf(50px);
+}
+
+.force-icon-usf-large {
+  @include force-icon-usf(75px);
+}

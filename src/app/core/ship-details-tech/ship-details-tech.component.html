@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="title">
+        {{ "shipDetails.techDetails" | translate | uppercase }}
+      </h2>
+      <div *ngFor="let item of ship.Characteristics | keyvalue">
+        <div class="row pt-2">
+          <div class="col-sm-6 fw-bold">
+            {{ "shipDetails.techDetails." + item.key.toLowerCase()
+            | translate
+            | splitWords
+            | uppercase }}
+          </div>
+          <div class="col-sm-6">{{ item.value | translate }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2 class="title">
+        {{ "shipDetails.strengths" | translate | uppercase }}
+      </h2>
+      <p class="pt-2"
+         [textContent]="ship.Strengths"></p>
+      <h2 class="title">
+        {{ "shipDetails.weaknesses" | translate | uppercase }}
+      </h2>
+      <p [textContent]="ship.Weaknesses"></p>
+    </div>
+  </div>
+</div>

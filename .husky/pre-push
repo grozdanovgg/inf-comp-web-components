@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REGEX="^main|((feature|bugfix)\/([A-Z]+-[0-9]{1,4}).*)|(release)\/[0-9]+\.[0-9]+\.x$"
+
+if ! [[ $BRANCH =~ $REGEX ]]; then
+  echo "Your commit was rejected due to branching name"
+  echo "Example: feature/IW-1_a_feature, bugfix/IW-2_a_bugfix"
+  echo "The regex used to check is $REGEX"
+  exit 1
+fi

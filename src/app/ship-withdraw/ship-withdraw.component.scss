@@ -1,0 +1,79 @@
+@use "src/theme/common-root-web-component";
+@use "node_modules/photoswipe/dist/photoswipe.css";
+
+
+.close {
+  float: right;
+  top: -1.5rem;
+  right: -1.5rem;
+  background-color: transparent;
+  margin-right: -10px;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.input-text {
+  font-size: 1rem !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+app-ship-card {
+  ion-card {
+    margin-left: 0;
+  }
+}
+
+.icon-group {
+  position: absolute;
+  display: inline-block;
+  width: 96%;
+  margin: 0 auto;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-ship {
+  z-index: 1;
+}
+
+.withdrawal-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  word-break: keep-all;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 85%;
+  height: 85%;
+}
+
+.arrow-svg {
+  width: 20%;
+  height: 20%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 769px) {
+  .withdrawal-text {
+    font-size: 0.8rem;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 642px) {
+  .withdrawal-text {
+    font-size: 1.2rem;
+  }
+}
+

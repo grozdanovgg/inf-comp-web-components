@@ -1,0 +1,125 @@
+@use '@angular/material' as mat;
+
+$inf-primary-map: (
+ 50: #FAFAFA,
+ 100: #F5F5F5,
+ 200: #EEEEEE,
+ 300: #E0E0E0,
+ 400: #BDBDBD,
+ 500: #9E9E9E,
+ 600: #757575,
+ 700: #616161,
+ 800: #424242,
+ 900: #212121,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+ )
+);
+
+
+// update the accent and warn maps when we need them
+$inf-accent-map: (
+  50: #FAFAFA,
+  100: #F5F5F5,
+  200: #EEEEEE,
+  300: #E0E0E0,
+  400: #BDBDBD,
+  500: #9E9E9E,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+ );
+
+ $inf-warn-map: (
+  50: #FAFAFA,
+  100: #F5F5F5,
+  200: #EEEEEE,
+  300: #E0E0E0,
+  400: #BDBDBD,
+  500: #9E9E9E,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+ );
+
+$inf-primary-palette: mat.define-palette($inf-primary-map);
+$inf-accent-palette: mat.define-palette($inf-accent-map);
+$inf-warn-palette: mat.define-palette($inf-warn-map);
+
+$inf-typography: mat.define-typography-config(
+  $font-family: 'Montserrat',
+);
+
+$inf-theme: mat.define-dark-theme((
+  color: (
+    primary: $inf-primary-palette,
+    accent: $inf-accent-palette,
+    warn: $inf-warn-palette,
+  ),
+  typography: $inf-typography
+));
+
+@include mat.core();
+@include mat.core-theme($inf-theme);
+
+/**
+* Please enable styles only for components that are in use in the project
+*/
+// @include mat.autocomplete-theme($inf-theme);
+// @include mat.button-theme($inf-theme);
+// @include mat.button-toggle-theme($inf-theme);
+// @include mat.card-theme($inf-theme);
+// @include mat.checkbox-theme($inf-theme);
+// @include mat.chips-theme($inf-theme);
+// @include mat.datepicker-theme($inf-theme);
+// @include mat.dialog-theme($inf-theme);
+// @include mat.grid-list-theme($inf-theme);
+// @include mat.icon-theme($inf-theme);
+// @include mat.input-theme($inf-theme);
+// @include mat.list-theme($inf-theme);
+// @include mat.menu-theme($inf-theme);
+// @include mat.progress-bar-theme($inf-theme);
+@include mat.progress-spinner-theme($inf-theme);
+// @include mat.radio-theme($inf-theme);
+// @include mat.select-theme($inf-theme);
+// @include mat.sidenav-theme($inf-theme);
+// @include mat.slide-toggle-theme($inf-theme);
+// @include mat.slider-theme($inf-theme);
+@include mat.tabs-theme($inf-theme);
+// @include mat.toolbar-theme($inf-theme);
+@include mat.tooltip-theme($inf-theme);
